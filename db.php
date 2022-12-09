@@ -2,7 +2,7 @@
 
 $bb_film = [
     'title' => 'The blues brothers',
-    'directors' => 'john landis',
+    'director' => 'john landis',
     'duration' => 120,
     'year' => 1980,
     'genre' => [
@@ -12,7 +12,7 @@ $bb_film = [
 
 $donnie_film = [
     'title' => 'Donnie darko',
-    'directors' => 'Richard Kelly',
+    'director' => 'Richard Kelly',
     'duration' => 100,
     'year' => 2001,
     'genre' => [
