@@ -3,16 +3,19 @@ require __DIR__ . '/Models/Movie.php';
 require __DIR__ . '/Models/Genres.php';
 include __DIR__ . '/db.php';
 
-$genres_1 = new Genres($bb_film['genre']);
-$film_1 = new Movie($bb_film['title'], $bb_film['director'], $bb_film['duration'], $bb_film['year'], $genres_1);
-var_dump($film_1);
 
-$genres_2 = new Genres($donnie_film['genre']);
-$film_2 = new Movie($donnie_film['title'], $donnie_film['director'], $donnie_film['duration'], $donnie_film['year'], $genres_2);
-var_dump($film_2);
 
-$film_1->get_film_data();
+$genres_1 = new Genres($movies['bb_film']['genre']);
+$film_1 = new Movie($movies['bb_film']['title'], $movies['bb_film']['director'], $movies['bb_film']['duration'], $movies['bb_film']['year'], $genres_1);
+// var_dump($film_1);
+
+$genres_2 = new Genres($movies['donnie_film']['genre']);
+$film_2 = new Movie($movies['donnie_film']['title'], $movies['donnie_film']['director'], $movies['donnie_film']['duration'], $movies['donnie_film']['year'], $genres_2);
+//var_dump($film_2->genres);
+
+// $movies['bb_film']->get_film_data();
 $film_2->get_film_data();
+$film_1->get_film_data();
 
 ?>
 
@@ -49,10 +52,13 @@ $film_2->get_film_data();
                     <div class="card-body">
                         <img src="https://picsum.photos/300/200" alt="">
                         <h3 class="card-title"><?php echo $film_1->title ?></h3>
-                        <div class="card-text">Text</div>
-                        <div class="card-text">Text</div>
-                        <div class="card-text">Text</div>
-                        <div class="card-text">Text</div>
+                        <div class="card-text"><?php echo $film_1->director ?></div>
+                        <div class="card-text"><?php echo $film_1->duration ?></div>
+                        <div class="card-text"><?php echo $film_1->year ?></div>
+                        <div class="card-text">
+                            <?php for ($i = 0; $i < count($film_1->genres->genres); $i++) {
+                                echo $film_1->genres->genres[$i] . '<br>';
+                            }  ?></div>
                     </div>
                 </div>
             </div>

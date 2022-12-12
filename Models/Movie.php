@@ -7,7 +7,7 @@ class Movie
     public $year;
     public $genres;
 
-    function __construct($title, $director, $duration, $year, $genres)
+    function __construct($title, $director, $duration, $year, Genres $genres)
     {
         $this->title = $title;
         $this->director = $director;
@@ -27,11 +27,11 @@ class Movie
         ];
         foreach ($data as $item) {
             if (!is_object($item)) {
-                echo $item;
+                echo $item . '<br>';
             } else {
                 foreach ($item as $genre) {
                     foreach ($genre as $string)
-                        echo $string;
+                        echo $string . '<br>';
                 }
             }
         }
